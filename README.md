@@ -49,6 +49,10 @@ An extract of the test data showing how different contestants were expected to p
 | 1      | Josh Widdicombe       | 13             | 2.6                             | 21.6%                                           | 19.6%                                             | -2.0%                               |
 | 18     | Andy Zaltzman         | 9              | 1.8                             | 21.2%                                           | 18.5%                                             | -2.7%                               |
 
+A different way to visualise the data is in using a dumb-bell chart, which makes it easier to spot which contestants had the most variation between predicted % of points scored and actual:
+
+![Dumb-bell chart of errors](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/dumbell%20chart.png "Dumb-bell chart of errors")
+
 <details> 
   <summary>Brief discussion of results with spoilers for Taskmaster series 1, 2 and 18</summary>
    It's interesting that the winners of series 1, 2, and 18 were the **most** underscored by the model. 
