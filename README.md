@@ -8,9 +8,12 @@ The project explores how informative early performance is in a partially subject
 ## Data sources
 The source for this work is a spreadsheet painstakingly collated by Jack Bern ([on Medium](https://jackbern23.medium.com/)), availble in [Google Docs](https://docs.google.com/spreadsheets/d/1S8L34lUyaaV78K02_eAAS-URsKxrWxY1aHT9qKXSoe8/edit?usp=sharing).
 
-## Notebook 1
+## Notebook 01
 The goal of this notebook is to prepare a clean modelling dataset that uses only Episode 1 information to predict final series performance, and check for nulls or other data errors.
 
-## Notebook 2
+View Notebook 01 here: [Notebook 01](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2001.ipynb)
 
-## Notebook 3
+## Notebook 02
+Given only Episode 1 data, how well can we predict final performance?
+
+## Notebook 03
