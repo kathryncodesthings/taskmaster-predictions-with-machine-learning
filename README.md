@@ -1,4 +1,7 @@
 # taskmaster-predictions-with-machine-learning
+
+<code> Use machine learning to predict whether early performance can predict long-term outcomes. Your time starts now.</code>
+
 Taskmaster is a  comedy panel game show. In each series of the programme, a group of five celebrities (mainly comedians) attempt to complete a series of challenges, referred to as "tasks". The Taskmaster then reviews the contestants' attempts and awards points based on performance, interpretation or other arbitrary, comedic factors. A winner is determined in each episode and for the series overall. ([Wikipedia](https://en.wikipedia.org/wiki/Taskmaster_(TV_series)))
 
 Using historical Taskmaster data, I built a machine learning model to predict contestants’ final series performance using only first-episode results. 
@@ -28,9 +31,6 @@ The next step was to train the model using linear regression. This tries to esti
 
 This is positive, as it shows that the linear regression model is working better than the simple baseline model.
 
-The results of the model are visualised as follows:
-
-![Scatterplot showing actual % of total points won vs predicted](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Scatterplot%201.png "Scatterplot showing actual % of total points won vs predicted")
 
 An extract of the test data showing how different contestants were expected to perform vs actual performance is shown below, from the highest positive error to lowest negative error:
 
@@ -51,8 +51,24 @@ An extract of the test data showing how different contestants were expected to p
    It's interesting that the winners of series 1, 2, and 18 were the **most** underscored by the model. 
 </details>
 
-Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. So could I improve the model by taking other data into account?
+Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. (Or the opposite: a great episode 1, and scoring low the rest of the series!) So could I improve the model by taking other data into account? There's no accounting for some factors (e.g. the Taskmaster's comedic vendetta against certain contestants), but I could try to improve the results.
 
 View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
 ## Notebook 03
+
+The results of the model are visualised as follows:
+
+![Scatterplot showing actual % of total points won vs predicted](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Scatterplot%201.png "Scatterplot showing actual % of total points won vs predicted")
+
+### add distribution of errors graphic
+
+## Notebook 04
+I compared models trained on Episode 1 data versus Episode 1–2 data to quantify how much additional predictive 'signal' Episode 2 provides.
+
+While additional data is often assumed to improve model performance, incorporating Episode 2 metrics slightly increased prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. The result highlights the unpredictable nature of the Taskmaster competition.
+
+In Taskmaster terms, this could be be partly due to Team tasks (often held back until Episode 2 and later), which will distort contestants' individual trends # test this
+
+## Possible improvements and further exploration
+If we exclude team tasks from the Episode 2 scores, does this improve the model accuracy?
