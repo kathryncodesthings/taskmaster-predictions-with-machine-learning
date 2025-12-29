@@ -29,7 +29,7 @@ The next step was to train the model using linear regression. This tries to esti
 * The linear regression model vs the baseline model shows a reduced MAE rate from 1.5 to **1.1** percentage points
 * The linear regression model vs the baseline model shows a reduced RMSE rate from 1.8 to **1.4** percentage points
 
-This is positive, as it shows that the linear regression model is working better than the simple baseline model.
+This shows that the linear regression model is working better than the simple baseline model.
 
 The results of the linear regression model are visualised as follows:
 
@@ -80,6 +80,7 @@ Future model developments could include:
 * Turn this into a 'how early can we predict?' curve
 
 This is a very detailed data set which poses some interesting questions:
+* Are some contestants provably worse than average at certain kinds of task (prize tasks, team tasks, studio tasks)?
 * If we exclude team tasks (which introduce futher complicating factors into individual contestants' performances), does this improve the model accuracy?
 * Do certain contestant characteristics statistically affect overall scores? (Age, height, gender, education, number of children, hair colour, etc.)
 * Could I combine this with data from [taskmaster.info](https://taskmaster.info/tasks.php)? This site catalogues extremely detailed qualitative information about tasks (e.g. whether a task involves bananas, counting, creativity, hiding things...). It would be interesting to see if we can find further insights from this data as well.
