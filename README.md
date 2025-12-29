@@ -64,16 +64,13 @@ Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 du
 View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
 ## Notebook 03
-
-
-### add distribution of errors graphic
-
-## Notebook 04
 I compared models trained on Episode 1 data versus Episode 1–2 data to quantify how much additional predictive 'signal' Episode 2 provides.
 
-While additional data is often assumed to improve model performance, incorporating Episode 2 metrics slightly increased prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. The result highlights the unpredictable nature of the Taskmaster competition.
+# image here
 
-In Taskmaster terms, this could be be partly due to Team tasks (often held back until Episode 2 and later), which will distort contestants' individual trends # test this
+While additional data is often assumed to improve model performance, incorporating Episode 2 metrics **slightly increased** prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. The result highlights the unpredictable nature of the Taskmaster competition.
 
 ## Possible improvements and further exploration
-If we exclude team tasks from the Episode 2 scores, does this improve the model accuracy?
+This is a very detailed data set which can answer some interesting questions:
+* If we exclude team tasks (which introduce futher complicating factors into individual contestants' performances), does this improve the model accuracy?
+* Do certain characteristics statistically affect overall scores? (Age, height, gender, education, number of children, hair colour, etc.) 
