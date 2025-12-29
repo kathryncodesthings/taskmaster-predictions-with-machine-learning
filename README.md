@@ -1,4 +1,4 @@
-# taskmaster-predictions-with-machine-learning
+# Taskmaster predictions with machine learning
 
 <code> Use machine learning to predict whether early performance can predict long-term outcomes. Your time starts now.</code>
 
