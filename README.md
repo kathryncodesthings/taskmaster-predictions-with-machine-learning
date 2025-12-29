@@ -9,7 +9,7 @@ Using historical Taskmaster data, I built a machine learning model to predict co
 The project explores how informative early performance is in a partially subjective competition and evaluates whether simple, interpretable models can meaningfully predict long-term outcomes.
 
 ## Data sources
-The source for this work is a spreadsheet painstakingly collated by Jack Bern ([on Medium](https://jackbern23.medium.com/)), availble in [Google Docs](https://docs.google.com/spreadsheets/d/1S8L34lUyaaV78K02_eAAS-URsKxrWxY1aHT9qKXSoe8/edit?usp=sharing).
+The source for this task is a spreadsheet carefully collated by the wonderful Jack Bern ([on Medium](https://jackbern23.medium.com/)), availble in [Google Docs](https://docs.google.com/spreadsheets/d/1S8L34lUyaaV78K02_eAAS-URsKxrWxY1aHT9qKXSoe8/edit?usp=sharing).
 
 ## Notebook 01
 The goal of this notebook is to prepare a clean modelling dataset that uses only Episode 1 information to predict final series performance, and check for nulls or other data errors.
@@ -29,7 +29,7 @@ The next step was to train the model using linear regression. This tries to esti
 * The linear regression model vs the baseline model shows a reduced MAE rate from 1.5 to **1.1** percentage points
 * The linear regression model vs the baseline model shows a reduced RMSE rate from 1.8 to **1.4** percentage points
 
-This is positive, as it shows that the linear regression model is working better than the simple baseline model.
+This shows that the linear regression model is working better than the simple baseline model.
 
 The results of the linear regression model are visualised as follows:
 
@@ -64,16 +64,23 @@ Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 du
 View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
 ## Notebook 03
-
-
-### add distribution of errors graphic
-
-## Notebook 04
 I compared models trained on Episode 1 data versus Episode 1–2 data to quantify how much additional predictive 'signal' Episode 2 provides.
 
-While additional data is often assumed to improve model performance, incorporating Episode 2 metrics slightly increased prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. The result highlights the unpredictable nature of the Taskmaster competition.
+![comparing models](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/model%201%20vs%20model%202.png "comparison of models")
 
-In Taskmaster terms, this could be be partly due to Team tasks (often held back until Episode 2 and later), which will distort contestants' individual trends # test this
+While additional data is often assumed to improve model performance, incorporating Episode 2 metrics **slightly increased** prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. 
+
+The result highlights the unpredictable nature of the Taskmaster competition!
+
+View Notebook 03 here: [Notebook 03](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2003.ipynb)
 
 ## Possible improvements and further exploration
-If we exclude team tasks from the Episode 2 scores, does this improve the model accuracy?
+Future model developments could include:
+* Repeat this comparison with a tree-based model, which might be more suitable for extracting 'signal' from noisy data
+* Turn this into a 'how early can we predict?' curve
+
+This is a very detailed data set which poses some interesting questions:
+* Are some contestants provably worse than average at certain kinds of task (prize tasks, team tasks, studio tasks)?
+* If we exclude team tasks (which introduce futher complicating factors into individual contestants' performances), does this improve the model accuracy?
+* Do certain contestant characteristics statistically affect overall scores? (Age, height, gender, education, number of children, hair colour, etc.)
+* Could I combine this with data from [taskmaster.info](https://taskmaster.info/tasks.php)? This site catalogues extremely detailed qualitative information about tasks (e.g. whether a task involves bananas, counting, creativity, hiding things...). It would be interesting to see if we can find further insights from this data as well.
