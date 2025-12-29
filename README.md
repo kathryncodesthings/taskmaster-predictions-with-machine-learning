@@ -56,7 +56,7 @@ An extract of the test data showing how different contestants were expected to p
 
 Visualising the distribution of errors suggests that it's more common for this model to under-estimate contestants' future % of points won, than to over-estimate them:
 
-
+![histogram distribution of errors](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Distribution%20of%20errors.png "histogram distribution of errors")
 
 
 Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. (Or the opposite: a great episode 1, and scoring low the rest of the series!) So could I improve the model by taking other data into account? There's no accounting for some factors (e.g. the Taskmaster's comedic vendetta against certain contestants), but I could try to improve the results.
