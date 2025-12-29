@@ -31,6 +31,9 @@ The next step was to train the model using linear regression. This tries to esti
 
 This is positive, as it shows that the linear regression model is working better than the simple baseline model.
 
+The results of the linear regression model are visualised as follows:
+
+![Scatterplot showing actual % of total points won vs predicted](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Scatterplot%201.png "Scatterplot showing actual % of total points won vs predicted")
 
 An extract of the test data showing how different contestants were expected to perform vs actual performance is shown below, from the highest positive error to lowest negative error:
 
@@ -51,15 +54,17 @@ An extract of the test data showing how different contestants were expected to p
    It's interesting that the winners of series 1, 2, and 18 were the **most** underscored by the model. 
 </details>
 
+Visualising the distribution of errors suggests that it's more common for this model to under-estimate contestants' future % of points won, than to over-estimate them:
+
+
+
+
 Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. (Or the opposite: a great episode 1, and scoring low the rest of the series!) So could I improve the model by taking other data into account? There's no accounting for some factors (e.g. the Taskmaster's comedic vendetta against certain contestants), but I could try to improve the results.
 
 View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
 ## Notebook 03
 
-The results of the model are visualised as follows:
-
-![Scatterplot showing actual % of total points won vs predicted](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Scatterplot%201.png "Scatterplot showing actual % of total points won vs predicted")
 
 ### add distribution of errors graphic
 
