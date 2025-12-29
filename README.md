@@ -46,8 +46,12 @@ An extract of the test data showing how different contestants were expected to p
 | 1      | Josh Widdicombe       | 13             | 2.6                             | 21.6%                                           | 19.6%                                             | -2.0%                               |
 | 18     | Andy Zaltzman         | 9              | 1.8                             | 21.2%                                           | 18.5%                                             | -2.7%                               |
 
+<details> 
+  <summary>Brief discussion of results with spoilers for Taskmaster series 1, 2 and 18</summary>
+   It's interesting that the winners of series 1, 2, and 18 were the **most** underscored by the model. 
+</details>
 
-
+Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. So could I improve the model by taking other data into account?
 
 View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
