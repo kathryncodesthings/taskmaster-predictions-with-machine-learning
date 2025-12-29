@@ -18,14 +18,36 @@ Given only Episode 1 data, how well can we predict final performance?
 
 I used a group-based train/test split so that entire Taskmaster series were held out during testing, ensuring the model was evaluated on completely unseen competitions rather than contestants it had indirectly learned from.
 
-If I hadn’t used GroupShuffleSplit:
-* Contestants from the same series could appear in both train and test
-* The model would implicitly learn series-specific patterns
-* Performance would look better than it really is
+I then created a baseline model that used an average to forecast contestant performance. This was to provide a comparison to my linear regression model. It produced a mean absolute error (MAE) of 1.5 percentage points, and a root mean squared error (RMSE) of 1.8% points. 
+This means that predictions made using a baseline model are off by approx 1.5% percentage points from the actual outcome (using MAE), or using  RMSE (more sensitive to larger errors), 1.8% percentage points.
 
-I then created a base model that used an average to forecast contestant performance. This was to provide a comparison to my linear regression model.
+The next step was to train the model using linear regression. This tries to estimate a value of y (the scalar response - series overall performance) for any value of x (the explanatory variables - performance in episode 1 and points per task in episode 1). There are different methods to try to minimise the difference between the linear equation (forecast value) and the actual value (this difference is called the 'residual value').
 
-### Add information about the model training and results here
+* The linear regression model vs the baseline model shows a reduced MAE rate from 1.5 to **1.1** percentage points
+* The linear regression model vs the baseline model shows a reduced RMSE rate from 1.8 to **1.4** percentage points
+
+This is positive, as it shows that the linear regression model is working better than the simple baseline model.
+
+The results of the model are visualised as follows:
+
+![Scatterplot showing actual % of total points won vs predicted](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Scatterplot%201.png "Scatterplot showing actual % of total points won vs predicted")
+
+An extract of the test data showing how different contestants were expected to perform vs actual performance is shown below, from the highest positive error to lowest negative error:
+
+| Series | Contestant            | Score After Ep 1 | Points Per Task Score After Ep 1 | Actual % of Total Points Won in Series | Predicted % of Total Points Won in Series | Prediction Error (Percentage Points) |
+|--------|----------------------|----------------|---------------------------------|-------------------------------------------------|---------------------------------------------------|-------------------------------------|
+| 18     | Rosie Jones           | 17             | 3.4                             | 18.2%                                           | 20.7%                                             | 2.5%                                |
+| 1      | Roisin Conaty         | 7              | 1.4                             | 15.6%                                           | 18.0%                                             | 2.4%                                |
+| 16     | Lucy Beaumont         | 13             | 2.6                             | 17.9%                                           | 19.6%                                             | 1.7%                                |
+| 2      | Joe Wilkinson         | 8              | 1.6                             | 16.6%                                           | 18.2%                                             | 1.7%                                |
+| 2      | Richard Osman         | 20             | 4.0                             | 20.6%                                           | 21.5%                                             | 0.9%                                |
+| 18     | Babatunde Aléshé      | 9              | 1.8                             | 19.5%                                           | 18.5%                                             | -1.0%                               |
+| 2      | Katherine Ryan        | 17             | 3.4                             | 22.5%                                           | 20.7%                                             | -1.9%                               |
+| 1      | Josh Widdicombe       | 13             | 2.6                             | 21.6%                                           | 19.6%                                             | -2.0%                               |
+| 18     | Andy Zaltzman         | 9              | 1.8                             | 21.2%                                           | 18.5%                                             | -2.7%                               |
+
+
+
 
 View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
