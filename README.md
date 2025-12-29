@@ -16,4 +16,17 @@ View Notebook 01 here: [Notebook 01](https://github.com/kathryncodesthings/taskm
 ## Notebook 02
 Given only Episode 1 data, how well can we predict final performance?
 
+I used a group-based train/test split so that entire Taskmaster series were held out during testing, ensuring the model was evaluated on completely unseen competitions rather than contestants it had indirectly learned from.
+
+If I hadn’t used GroupShuffleSplit:
+* Contestants from the same series could appear in both train and test
+* The model would implicitly learn series-specific patterns
+* Performance would look better than it really is
+
+I then created a base model that used an average to forecast contestant performance. This was to provide a comparison to my linear regression model.
+
+### Add information about the model training and results here
+
+View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
+
 ## Notebook 03
