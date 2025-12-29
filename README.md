@@ -25,8 +25,8 @@ If I hadn’t used GroupShuffleSplit:
 
 I then created a base model that used an average to forecast contestant performance. This was to provide a comparison to my linear regression model.
 
-# Add information about the model training and results here
+### Add information about the model training and results here
 
-View Notebook 02 here: [Notebook 01](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
+View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
 ## Notebook 03
