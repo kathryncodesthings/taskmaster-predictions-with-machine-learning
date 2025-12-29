@@ -66,11 +66,20 @@ View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskm
 ## Notebook 03
 I compared models trained on Episode 1 data versus Episode 1–2 data to quantify how much additional predictive 'signal' Episode 2 provides.
 
-# image here
+![comparing models](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/model%201%20vs%20model%202.png "comparison of models")
 
-While additional data is often assumed to improve model performance, incorporating Episode 2 metrics **slightly increased** prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. The result highlights the unpredictable nature of the Taskmaster competition.
+While additional data is often assumed to improve model performance, incorporating Episode 2 metrics **slightly increased** prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. 
+
+The result highlights the unpredictable nature of the Taskmaster competition!
+
+View Notebook 03 here: [Notebook 03](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2003.ipynb)
 
 ## Possible improvements and further exploration
-This is a very detailed data set which can answer some interesting questions:
+Future model developments could include:
+* Repeat this comparison with a tree-based model, which might be more suitable for extracting 'signal' from noisy data
+* Turn this into a 'how early can we predict?' curve
+
+This is a very detailed data set which poses some interesting questions:
 * If we exclude team tasks (which introduce futher complicating factors into individual contestants' performances), does this improve the model accuracy?
-* Do certain characteristics statistically affect overall scores? (Age, height, gender, education, number of children, hair colour, etc.) 
+* Do certain contestant characteristics statistically affect overall scores? (Age, height, gender, education, number of children, hair colour, etc.)
+* Could I combine this with data from [taskmaster.info](https://taskmaster.info/tasks.php)? This site catalogues extremely detailed qualitative information about tasks (e.g. whether a task involves bananas, counting, creativity, hiding things...). It would be interesting to see if we can find further insights from this data as well.
