@@ -84,7 +84,7 @@ A different way to visualise the data is in using a dumb-bell chart, which makes
 ![Dumb-bell chart of errors](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/dumbell%20chart.png "Dumb-bell chart of errors")
 
 <details> 
-  <summary>Brief discussion of results with spoilers for Taskmaster series 1, 2 and 18</summary>
+  <summary>Discussion of results <b>with spoilers</b> for Taskmaster series 1, 2, 16 and 18</summary>
    Reading the dumb-bell chart and comparing the actual to the predicted placings, it seems as if people who actually end up in first or last place might have a higher error rate. For example, Rosie Jones (S18) is forecast by the model to get the highest share of points (and win the series), but actually came last. Similarly Roisin, Joe and Lucy scored comparatively low in their series, but the model over-estimates their scores the most.
     It's interesting that the winners of series 1, 2, 16, and 18 (Josh, Katherine, Sam and Andy) were THE most underscored by the model. 
 </details>
@@ -112,10 +112,11 @@ View Notebook 03 here: [Notebook 03](https://github.com/kathryncodesthings/taskm
 ## Possible improvements and further exploration
 Future model developments could include:
 * Repeat this comparison with a tree-based model, which might be more suitable for extracting 'signal' from noisy data
-* Turn this into a 'how early can we predict?' curve
+* Turn this into a 'how early can I predict?' curve
 
 This is a very detailed data set which poses some interesting questions:
-* Are some contestants provably worse than average at certain kinds of task (prize tasks, team tasks, studio tasks)?
-* If we exclude team tasks (which introduce futher complicating factors into individual contestants' performances), does this improve the model accuracy?
+* Are some contestants provably worse than average at certain kinds of task (prize tasks, team tasks, studio tasks)? Often in the show, a contestant is singled out for being especially bad at, for example, prize tasks or artistic tasks. But is it justified?
+* If we exclude team tasks (which introduce complicating factors into individual contestants' performances), does this improve the model accuracy?
 * Do certain contestant characteristics statistically affect overall scores? (Age, height, gender, education, number of children, hair colour, etc.)
 * Could I combine this with data from [taskmaster.info](https://taskmaster.info/tasks.php)? This site catalogues extremely detailed qualitative information about tasks (e.g. whether a task involves bananas, counting, creativity, hiding things...). It would be interesting to see if we can find further insights from this data as well.
+* There are many international Taskmaster versions (Australia, Norway, Canada etc.). Can I work out who's the most harsh Taskmaster judge (based on e.g. disqualifications and point distribution), or if other versions are more or less predictable by our model?
