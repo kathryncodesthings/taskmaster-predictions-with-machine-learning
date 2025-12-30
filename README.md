@@ -56,8 +56,9 @@ This shows that the linear regression model is working better than the simple ba
 Final performance is expressed as a percentage of total points awarded within a series, meaning outcomes are compositional and *should* sum to 100% across contestants. The model currently predicts performance independently of this. To respect this contstraint, I rescaled the predicted percentages for each series to total 100.
 
 ```py
-    y_pred_normalised["Predicted_Final_Pct_Norm"] = (y_pred_normalised.groupby("Series")["Predicted_Final_Pct_Raw"].transform(lambda x: x / x.sum()))
-    ```
+    y_pred_normalised["Predicted_Final_Pct_Norm"] = (y_pred_normalised.groupby("Series")["Predicted_Final_Pct_Raw"].
+    transform(lambda x: x / x.sum()))
+```
 
 ### Results
 The results of the linear regression model are visualised as follows:
