@@ -62,17 +62,17 @@ The results of the linear regression model are visualised as follows:
 
 An extract of the test data showing how different contestants were expected to perform vs actual performance is shown below, from the highest positive error to lowest negative error:
 
-| Series | Contestant            | Score After Ep 1 | Points Per Task Score After Ep 1 | Actual % of Total Points Won in Series | Predicted % of Total Points Won in Series | Prediction Error (Percentage Points) |
-|--------|----------------------|----------------|---------------------------------|-------------------------------------------------|---------------------------------------------------|-------------------------------------|
-| 18     | Rosie Jones           | 17             | 3.4                             | 18.2%                                           | 20.7%                                             | 2.5%                                |
-| 1      | Roisin Conaty         | 7              | 1.4                             | 15.6%                                           | 18.0%                                             | 2.4%                                |
-| 16     | Lucy Beaumont         | 13             | 2.6                             | 17.9%                                           | 19.6%                                             | 1.7%                                |
-| 2      | Joe Wilkinson         | 8              | 1.6                             | 16.6%                                           | 18.2%                                             | 1.7%                                |
-| 2      | Richard Osman         | 20             | 4.0                             | 20.6%                                           | 21.5%                                             | 0.9%                                |
-| 18     | Babatunde Aléshé      | 9              | 1.8                             | 19.5%                                           | 18.5%                                             | -1.0%                               |
-| 2      | Katherine Ryan        | 17             | 3.4                             | 22.5%                                           | 20.7%                                             | -1.9%                               |
-| 1      | Josh Widdicombe       | 13             | 2.6                             | 21.6%                                           | 19.6%                                             | -2.0%                               |
-| 18     | Andy Zaltzman         | 9              | 1.8                             | 21.2%                                           | 18.5%                                             | -2.7%                               |
+| Series | Contestant            | Score After Ep 1 | Points Per Task After Ep 1 | Actual % of Total Points Won | Predicted % of Total Points Won | Prediction Error (pp) |
+|--------|-----------------------|------------------|----------------------------|------------------------------|---------------------------------|------------------------|
+| 18     | Rosie Jones           | 17               | 3.4                        | 18.2%                        | 21.2%                           | 3.0%                   |
+| 1      | Roisin Conaty         | 7                | 1.4                        | 15.6%                        | 17.9%                           | 2.3%                   |
+| 2      | Joe Wilkinson         | 8                | 1.6                        | 16.6%                        | 18.3%                           | 1.7%                   |
+| 16     | Lucy Beaumont         | 13               | 2.6                        | 17.9%                        | 19.2%                           | 1.3%                   |
+| 16     | Sam Campbell          | 21               | 4.2                        | 22.3%                        | 21.3%                           | -1.0%                  |
+| 2      | Katherine Ryan        | 17               | 3.4                        | 22.5%                        | 20.7%                           | -1.8%                  |
+| 1      | Josh Widdicombe       | 13               | 2.6                        | 21.6%                        | 19.5%                           | -2.1%                  |
+| 18     | Andy Zaltzman         | 9                | 1.8                        | 21.2%                        | 18.9%                           | -2.3%                  |
+
 
 A different way to visualise the data is in using a dumb-bell chart, which makes it easier to spot which contestants had the most variation between predicted % of points scored and actual:
 
@@ -80,7 +80,8 @@ A different way to visualise the data is in using a dumb-bell chart, which makes
 
 <details> 
   <summary>Brief discussion of results with spoilers for Taskmaster series 1, 2 and 18</summary>
-   It's interesting that the winners of series 1, 2, and 18 were the **most** underscored by the model. 
+   Reading the dumb-bell chart and comparing the actual to the predicted placings, it seems as if people who actually end up in first or last place might have a higher error rate. For example, Rosie Jones (S18) is forecast by the model to get the highest share of points (and win the series), but actually came last. Similarly Roisin, Joe and Lucy scored comparatively low in their series, but the model over-estimates their scores the most.
+    It's interesting that the winners of series 1, 2, 16, and 18 (Josh, Katherine, Sam and Andy) were THE most underscored by the model. 
 </details>
 
 Visualising the distribution of errors suggests that it's more common for this model to under-estimate contestants' future % of points won, than to over-estimate them:
@@ -88,7 +89,7 @@ Visualising the distribution of errors suggests that it's more common for this m
 ![histogram distribution of errors](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Distribution%20of%20errors.png "histogram distribution of errors")
 
 
-Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. (Or the opposite: a great episode 1, and scoring low the rest of the series!) So could I improve the model by taking other data into account? There's no accounting for some factors (e.g. the Taskmaster's comedic vendetta against certain contestants), but I could try to improve the results.
+Due to the nature of Taskmaster, contestants can have a low-scoring episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. (Or the opposite: a great episode 1, and scoring low the rest of the series!) So could I improve the model by taking other data into account? There's no accounting for some factors (i.e. the whims of the Taskmaster), but I could try to improve the results.
 
 View Notebook 02 here: [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
