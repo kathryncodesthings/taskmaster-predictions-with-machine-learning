@@ -18,9 +18,13 @@ I decided to start with a very simple model, containing:
   * Points scored per task in Episode 1
   * Score after episode 1
 * Scalar response (i.e. what the model will try to predict):
-  * % of total points won in series (e.g. in series 13 a contestant could *theoretically* have won up to 795 points if they won every single task + bonus points; the winner of the series got 158 points, or 21.8% of the total points available)
+  * % of total points won in series (e.g. in series 13, the Taskmaster awarded 795 points across all tasks to all contestants; the winner of the series got 158 points, or 21.8% of the total points awarded)
 
 Using the % of total points won is useful here because different series have different total points available; this makes all series comparable.
+
+However, this does mean that a contestant’s outcome is not independent of the others in the same series: if one contestant does better, someone else must do worse. This is compositional data. If I let the model treat each contestant separately, the predicted % of points won for a series could be more or less than 100%.
+
+This will be addressed in my model, below. 
 
 <details> 
   <summary>Taskmaster-specific nerdiness below:</summary>
@@ -48,6 +52,10 @@ The next step was to train the model using linear regression. This tries to esti
 
 This shows that the linear regression model is working better than the simple baseline model.
 
+### Addressing the compositional nature of the data
+Final performance is expressed as a percentage of total points awarded within a series, meaning outcomes are compositional and *should* sum to 100% across contestants. The model currently predicts performance independently of this. To respect this contstraint, I rescaled the predicted percentages for each series to total 100.
+
+### Results
 The results of the linear regression model are visualised as follows:
 
 ![Scatterplot showing actual % of total points won vs predicted](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Scatterplot%201.png "Scatterplot showing actual % of total points won vs predicted")
