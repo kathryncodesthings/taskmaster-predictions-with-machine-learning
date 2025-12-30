@@ -47,13 +47,17 @@ This means that predictions made using a baseline model are off by approx 1.5% p
 
 The next step was to train the model using linear regression. This tries to estimate a value of y (the scalar response - series overall performance) for any value of x (the explanatory variables - performance in episode 1 and points per task in episode 1). There are different methods to try to minimise the difference between the linear equation (forecast value) and the actual value (this difference is called the 'residual value').
 
-* The linear regression model vs the baseline model shows a reduced MAE rate from 1.5 to **1.1** percentage points
-* The linear regression model vs the baseline model shows a reduced RMSE rate from 1.8 to **1.4** percentage points
+* The linear regression model vs the baseline model shows a reduced MAE rate from 1.5 to **1.0** percentage points
+* The linear regression model vs the baseline model shows a reduced RMSE rate from 1.8 to **1.3** percentage points
 
 This shows that the linear regression model is working better than the simple baseline model.
 
 ### Addressing the compositional nature of the data
 Final performance is expressed as a percentage of total points awarded within a series, meaning outcomes are compositional and *should* sum to 100% across contestants. The model currently predicts performance independently of this. To respect this contstraint, I rescaled the predicted percentages for each series to total 100.
+
+```py
+    y_pred_normalised["Predicted_Final_Pct_Norm"] = (y_pred_normalised.groupby("Series")["Predicted_Final_Pct_Raw"].transform(lambda x: x / x.sum()))
+    ```
 
 ### Results
 The results of the linear regression model are visualised as follows:
