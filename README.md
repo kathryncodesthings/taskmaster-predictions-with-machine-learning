@@ -2,14 +2,31 @@
 
 <code> Use machine learning to predict whether early performance can predict long-term outcomes. Your time starts now.</code>
 
-Taskmaster is a  comedy panel game show. In each series of the programme, a group of five celebrities (mainly comedians) attempt to complete a series of challenges, referred to as "tasks". The Taskmaster then reviews the contestants' attempts and awards points based on performance, interpretation or other arbitrary, comedic factors. A winner is determined in each episode and for the series overall. ([Wikipedia](https://en.wikipedia.org/wiki/Taskmaster_(TV_series)))
-
 Using historical Taskmaster data, I built a machine learning model to predict contestants’ final series performance using only first-episode results. 
+
+Taskmaster is a  comedy panel game show. In each series of the programme, a group of five celebrities (mainly comedians) attempt to complete a series of challenges, referred to as "tasks". The Taskmaster then reviews the contestants' attempts and awards points based on performance, interpretation or other arbitrary, comedic factors. A winner is determined in each episode and for the series overall. ([Wikipedia](https://en.wikipedia.org/wiki/Taskmaster_(TV_series)))
 
 The project explores how informative early performance is in a partially subjective competition and evaluates whether simple, interpretable models can meaningfully predict long-term outcomes.
 
 ## Data sources
 The source for this task is a spreadsheet carefully collated by the wonderful Jack Bern ([on Medium](https://jackbern23.medium.com/)), availble in [Google Docs](https://docs.google.com/spreadsheets/d/1S8L34lUyaaV78K02_eAAS-URsKxrWxY1aHT9qKXSoe8/edit?usp=sharing).
+
+## Method
+I decided to start with a very simple model, containing:
+* Contestant name and series
+* Explanatory variables:
+  * Points scored per task in Episode 1
+  * Score after episode 1
+* Scalar response (i.e. what the model will try to predict):
+  * % of total points won in series (e.g. in series 13 a contestant could *theoretically* have won up to 795 points if they won every single task + bonus points; the winner of the series got 158 points, or 21.8% of the total points available)
+
+Using the % of total points won is useful here because different series have different numbers of episodes and total points available; this makes all series comparable.
+
+<details> 
+  <summary>Taskmaster-specific nerdiness below:</summary>
+   Episode 1 could be a bit anomalous due to the prize task and the studio task. This is the first time all the contestants are together in the studio, and many contestants have reflected that they were nervous or under-prepared for the prize/studio tasks at first. So it's possible that some contestants performed worse on these tasks initially before improving. However, because the judging is often highly subjective, it's difficult to isolate this factor from others that affect performance. It might be possible to extend my analysis in the future to review whether there is a group of contestants who perform better/worse on different types of task (studio/pre-recorded/prize tasks) and whether this changes over their series.
+</details>
+
 
 ## Notebook 01
 The goal of this notebook is to prepare a clean modelling dataset that uses only Episode 1 information to predict final series performance, and check for nulls or other data errors.
