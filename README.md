@@ -2,14 +2,35 @@
 
 <code> Use machine learning to predict whether early performance can predict long-term outcomes. Your time starts now.</code>
 
-Taskmaster is a  comedy panel game show. In each series of the programme, a group of five celebrities (mainly comedians) attempt to complete a series of challenges, referred to as "tasks". The Taskmaster then reviews the contestants' attempts and awards points based on performance, interpretation or other arbitrary, comedic factors. A winner is determined in each episode and for the series overall. ([Wikipedia](https://en.wikipedia.org/wiki/Taskmaster_(TV_series)))
-
 Using historical Taskmaster data, I built a machine learning model to predict contestants’ final series performance using only first-episode results. 
+
+Taskmaster is a  comedy panel game show. In each series of the programme, a group of five celebrities (mainly comedians) attempt to complete a series of challenges, referred to as "tasks". The Taskmaster then reviews the contestants' attempts and awards points based on performance, interpretation or other arbitrary, comedic factors. A winner is determined in each episode and for the series overall. ([Wikipedia](https://en.wikipedia.org/wiki/Taskmaster_(TV_series)))
 
 The project explores how informative early performance is in a partially subjective competition and evaluates whether simple, interpretable models can meaningfully predict long-term outcomes.
 
 ## Data sources
 The source for this task is a spreadsheet carefully collated by the wonderful Jack Bern ([on Medium](https://jackbern23.medium.com/)), availble in [Google Docs](https://docs.google.com/spreadsheets/d/1S8L34lUyaaV78K02_eAAS-URsKxrWxY1aHT9qKXSoe8/edit?usp=sharing).
+
+## Method
+I decided to start with a very simple model, containing:
+* Contestant name and series
+* Explanatory variables:
+  * Points scored per task in Episode 1
+  * Score after episode 1
+* Scalar response (i.e. what the model will try to predict):
+  * % of total points won in series (e.g. in series 13, the Taskmaster awarded 795 points across all tasks to all contestants; the winner of the series got 158 points, or 21.8% of the total points awarded)
+
+Using the % of total points won is useful here because different series have different total points available; this makes all series comparable.
+
+However, this does mean that a contestant’s outcome is not independent of the others in the same series: if one contestant does better, someone else must do worse. This is compositional data. If I let the model treat each contestant separately, the predicted % of points won for a series could be more or less than 100%.
+
+This will be addressed in my model, below. 
+
+<details> 
+  <summary>Taskmaster-specific nerdiness below:</summary>
+   Episode 1 could be a bit anomalous due to the prize task and the studio task. This is the first time all the contestants are together in the studio, and many contestants have reflected that they were nervous or under-prepared for the prize/studio tasks at first. So it's possible that some contestants performed worse on these tasks initially before improving. However, because the judging is often highly subjective, it's difficult to isolate this factor from others that affect performance. It might be possible to extend my analysis in the future to review whether there is a group of contestants who perform better/worse on different types of task (studio/pre-recorded/prize tasks) and whether this changes over their series.
+</details>
+
 
 ## Notebook 01
 The goal of this notebook is to prepare a clean modelling dataset that uses only Episode 1 information to predict final series performance, and check for nulls or other data errors.
@@ -31,6 +52,10 @@ The next step was to train the model using linear regression. This tries to esti
 
 This shows that the linear regression model is working better than the simple baseline model.
 
+### Addressing the compositional nature of the data
+Final performance is expressed as a percentage of total points awarded within a series, meaning outcomes are compositional and *should* sum to 100% across contestants. The model currently predicts performance independently of this. To respect this contstraint, I rescaled the predicted percentages for each series to total 100.
+
+### Results
 The results of the linear regression model are visualised as follows:
 
 ![Scatterplot showing actual % of total points won vs predicted](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/Scatterplot%201.png "Scatterplot showing actual % of total points won vs predicted")
@@ -48,6 +73,10 @@ An extract of the test data showing how different contestants were expected to p
 | 2      | Katherine Ryan        | 17             | 3.4                             | 22.5%                                           | 20.7%                                             | -1.9%                               |
 | 1      | Josh Widdicombe       | 13             | 2.6                             | 21.6%                                           | 19.6%                                             | -2.0%                               |
 | 18     | Andy Zaltzman         | 9              | 1.8                             | 21.2%                                           | 18.5%                                             | -2.7%                               |
+
+A different way to visualise the data is in using a dumb-bell chart, which makes it easier to spot which contestants had the most variation between predicted % of points scored and actual:
+
+![Dumb-bell chart of errors](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/img/dumbell%20chart.png "Dumb-bell chart of errors")
 
 <details> 
   <summary>Brief discussion of results with spoilers for Taskmaster series 1, 2 and 18</summary>
