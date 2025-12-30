@@ -20,7 +20,7 @@ I decided to start with a very simple model, containing:
 * Scalar response (i.e. what the model will try to predict):
   * % of total points won in series (e.g. in series 13 a contestant could *theoretically* have won up to 795 points if they won every single task + bonus points; the winner of the series got 158 points, or 21.8% of the total points available)
 
-Using the % of total points won is useful here because different series have different numbers of episodes and total points available; this makes all series comparable.
+Using the % of total points won is useful here because different series have different total points available; this makes all series comparable.
 
 <details> 
   <summary>Taskmaster-specific nerdiness below:</summary>
