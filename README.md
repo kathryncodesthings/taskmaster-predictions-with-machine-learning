@@ -72,7 +72,7 @@ This is compared to the linear regression model, below.
 
 ### Linear regression model
 
-The next step was to train the model using linear regression. This tries to estimate a value of y (the scalar response - series overall performance) for any value of x (the explanatory variables - performance in  and points per task in ). There are different methods to try to minimise the difference between the linear equation (forecast value) and the actual value (this difference is called the 'residual value').
+The next step was to train the model using linear regression. This tries to estimate a value of y (the scalar response - series overall % of points won) for any value of x (the explanatory variables - performance in Episode 1  and points per task in Episode 1). There are different methods to try to minimise the difference between the linear equation (forecast value) and the actual value (this difference is called the 'residual value').
 
 * The linear regression model vs the baseline model shows a reduced MAE rate from 1.5 to **1.0** percentage points
 * The linear regression model vs the baseline model shows a reduced RMSE rate from 1.8 to **1.3** percentage points
