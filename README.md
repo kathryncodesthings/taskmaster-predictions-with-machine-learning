@@ -144,7 +144,7 @@ Due to the nature of Taskmaster, contestants can have a low-scoring  due to bad 
 
 View Notebook 02 here (main calculations and visualisations): [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
-View Notebook 04 here (placement calculations): [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2004.ipynb)
+View Notebook 04 here (placement calculations): [Notebook 04](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2004.ipynb)
 
 ## Notebook 03
 I compared models trained on Episode 1 data versus Episode 1 **and** 2 data to quantify how much additional predictive 'signal' Episode 2 provides.
