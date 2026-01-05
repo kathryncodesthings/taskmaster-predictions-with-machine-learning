@@ -140,7 +140,7 @@ In the baseline model, which is created using a simple average, all contestants 
 
 #### Next steps
 
-Due to the nature of Taskmaster, contestants can have a low-scoring  due to bad luck. It's possible that they will do much better in the remaining episodes. (Or the opposite: a great , and scoring low the rest of the series!) So could I improve the model by taking other data into account? There's no accounting for some factors (i.e. the whims of the Taskmaster), but I could try to improve the results.
+Due to the nature of Taskmaster, contestants can have a low-scoring Episode 1 due to bad luck. It's possible that they will do much better in the remaining episodes. (Or the opposite: a great Episode 1, and scoring low the rest of the series!) So could I improve the model by taking other data into account? There's no accounting for some factors (i.e. the whims of the Taskmaster), but I could try to improve the results.
 
 View Notebook 02 here (main calculations and visualisations): [Notebook 02](https://github.com/kathryncodesthings/taskmaster-predictions-with-machine-learning/blob/main/notebooks/Notebook%2002.ipynb)
 
