@@ -53,16 +53,16 @@ This means that predictions made using a baseline model are off by approx 1.5% p
 
 #### Placement accuracy
 
-However, in practice our model doesn't *need* to accurately predict % of points won. If it can predict the contestants' final placements in the series, that will be good enough!
+However, in practice our model doesn't *need* to accurately predict % of points won. Each contestant finishes the series placing from 1 (most points) to 5 (fewerst points). If it can predict the contestants' final placements in the series, that will be good enough!
 
 Our baseline model forecasts each contestant's placement as follows:
 
-| Series | Number of Contestants | Mean Absolute Placement Error |
-|--------|----------------------|-------------------------------|
-| 1      | 5                    | 2.0                           |
-| 2      | 5                    | 2.0                           |
-| 16     | 5                    | 2.0                           |
-| 18     | 5                    | 2.0                           |
+| Series | Mean Absolute Placement Error |
+|--------|-------------------------------|
+| 1      | 2.0                           |
+| 2      | 2.0                           |
+| 16     | 2.0                           |
+| 18     | 2.0                           |
 
 This gives:
 * Mean absolute placement error: 2.0
