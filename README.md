@@ -154,7 +154,7 @@ I compared models trained on Episode 1 data versus Episode 1 **and** 2 data to q
 While additional data is often assumed to improve model performance, incorporating Episode 2 metrics **slightly increased** prediction error. This suggests that early-series volatility, team dynamics, and subjective judging introduce noise that temporarily obscures underlying performance trends. 
 
 #### Placement accuracy (no spoilers)
-Placement accuracy also becomes less accurate when Episode 2 is incorporated:
+Placement accuracy also decreases when Episode 2 is incorporated:
 
 | Model             | Mean Absolute Placement Error | Exact placement matches |
 |-------------------|-------------------------------|-------------------------|
